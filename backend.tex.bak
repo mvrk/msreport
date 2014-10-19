@@ -1,18 +1,56 @@
 \chapter{Backend Mystery} 
 
-\section{MTV framework}
+\section{MTV Framework}
+The apps are modularized. You can remove your  application by deleting one directory instead of hunting through several directories deleting each piece. 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.6]{./mtv}
+\caption{Django MTV framwork(cite from internet)}
+\label{fig:label} % insert suitable label, this is used to refer to a fig from within the text as shown above
+\end{figure}
+\textbf{M} represents the model (Model), i.e. the data access layer. The layer processing and data in all matters related to: how to access, how to confirm the validity of including which the relationship between behavior and data.\\
+\textbf{T} Representative of T template (Template), i.e., the presentation layer. The layer processing performance related decision: how to display the page or other types of documents.\\
+\textbf{V} represents the view (View), business logic layer. This layer contains the access models and the transfer of appropriate template logic. You can see it as a bridge between the model and the template.\\
 \section{Models and Database}
+In Django, a lot of this hassle is taken care of for you by Django’s object relational mapping (ORM) functions, and how Django encapsulates databases tables through models. Essentially, a model is a Python object that describes your data model/table. Instead of directly working on the database table via SQL, all you have to do is manipulate the corresponding Python object. 
 \section{Django Template Language}
+Django template language is not just HTML file. Here is an example:
+\begin{verbatim}
+{% block navigation %}
+<nav id="navigation">
+{% with bookpage.book.pages.all as bookpages %}
+    <ul class="book-page-list">
+    {% for page in bookpages %}
+    {% if page != bookpage %}
+    <li><a href="{{ page.get_absolute_url }}">{{ page.name }}
+    {% else %}
+        <li class="active">{{ page.name }}</li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+{% endwith %}
+</nav>
+{% endblock %}
+\end{verbatim}
+
+Variable A {{a}}
+Tag b {%b%}
+c filter d{{c|d}}
+
+we can add variables tags and filters into html code.
+
 \section{Request-Response Flow}
 
 How Teakwood process a request from user?
 \begin{figure}[htb]
 \centering
-\includegraphics[scale=0.8]{./http_request_response}
+\includegraphics[scale=0.6]{./http_request_response}
 \caption{<Caption here>}
 \label{fig:label} % insert suitable label, this is used to refer to a fig from within the text as shown above
 \end{figure}
 
-\section{Lose Coupling}
+%\section{Lose Coupling}
 \section{Powerful Admin}
+Django comes with a user authentication system. It handles user accounts, groups, permissions and cookie-based user sessions. This section of the documentation explains how the default implementation works out of the box, as well as how to extend and customize it to suit your project’s needs.
 

@@ -1,9 +1,2 @@
 \chapter{Conclusion}
 
-How Teakwood process a request from user?
-\begin{figure}[htb]
-\centering
-\includegraphics[scale=0.6]{./http_request_response}
-\caption{<Caption here>}
-\label{fig:label} % insert suitable label, this is used to refer to a fig from within the text as shown above
-\end{figure}
