@@ -1,17 +1,37 @@
 \chapter{Introduction}
 
 \section{Motivation}
-%%\subsection{<any sub section here>}
-%
-%%\subsection{Literature Survey}
-%
-%%\subsubsection{<Sub-subsection title>}
-%some text\cite{citation-1-name-here}, some more text
-%
-%%\subsubsection{<Sub-subsection title>}
-%even more text\footnote{<footnote here>}, and even more.
+Four years ago, I know nothing about Linux. I then got a job to deal with HPC(High Cerformance Computing) system. Suddenly I jumped in to an UNIX environment. I found all those GUIs(Graphic User Interfaces), which I used to when I use Window OS, are gone, and I have to use Linux commands to control those machines and manage my stuff, which makes me uncomfortable and cumbersome. With the time goes by, I can work with Linux comfortably now. however, I still have the tendency to use GUI.\\I am not the only one that had such experience, In my working building, a lot of Scientists and researchers are suffering this pain. Further, cross-platform work adding them many wasteful jobs. For example, scientist A want to share a computing result for researcher B to do visualization. A uses Linux and B uses Window. What should they do? command, command, command, copy, paste, command, command ...\\Why not create a GUI platform to reduce those repeated typing work and allow them to work cooperatively?\\With all those desires, Here comes the Teakwood framework.
 
 \section{Teakwood}
+Teakwood is GUI framework that allows user to summit HPC jobs from its web console, and to have a full control of their job status. Teakwood also provides a file management systems for user to organize their job data easily. What's more, Teakwood enables user to work cooperatively by sharing their result, models and computing resources within their group. \\Teakwood migrates all the terminal typing work to Teakwood GUI, enables user to submit the HPC jobs just by simply clicking functional buttons.\\Teakwood is a web framwork, which means user can access from any type of machine as lons as the machine has a browser.
 
 \section{Feature}
+Functionally, Teakwood have the following features:\\
+
+$\bullet$ \textbf{Perfect documentation}\\
+\\
+Teakwood homepage provides diverse software information including installation guide, user manual, developer manual,video tutorial, etc. user can easily fetch info and grasp Teakwood soon.\\
+\\
+$\bullet$ \textbf{Extensible deployment}\\
+\\
+Teakwood is loose coupling designed. User can easily add or remove features, models or even python functions without mess the whole system.\\
+\\
+$\bullet$ \textbf{Neat GUI}\\
+\\
+A neat LSU style web console makes your work simple as Windows. Drag, push, click, that's it!\\
+\\
+$\bullet$ \textbf{Job monitor System}\\
+\\
+Job monitor system provides five labels: uploading, queued, running, finish, and Data ready to let the user monitor the job status. Job monitor system also periodically pulls the running message and displays it in the console, user can know more details about their job.\\
+\\
+$\bullet$ \textbf{Project management system}\\
+\\
+All user's project is well organized and web kept in a file server. user can compare, share, and download them as needed.\\
+\\
+$\bullet$ \textbf{Powerful admin}\\
+\\
+The powerful admin system is provided by Django itself. with tiny System configuration, use can activate their models.
+
+
 
