@@ -1,61 +1,62 @@
 \chapter{Introduction}
 
 \section{Motivation}
-Four years ago, I know nothing about Linux. I then got a job to deal with HPC(High Performance Computing) systems. Suddenly I jumped in to an Linux environment. I found that all those GUIs(Graphic User Interfaces), which I used to when I using Windows OS, are gone, and I have to use Linux commands to manipulate those machines and manage my stuff, which makes me uncomfortable and cumbersome. With time goes by, I eventually can work with Linux comfortably. However, I still have the tendency to use GUI when proving me an option.\\I am not the only one that had such experience. In my working building, a lot of scientists and researchers are suffering this pain. Not only this, since they usually have to work on cross-platforms, the OS conflict add them many wasteful jobs. For example, scientist A want to share a computing result for researcher B to do the visualization. A uses Linux and B uses Windows. What should they do? Command, command, command, copy, paste, command, command ...\\Why not create a GUI platform to reduce those repeated typing work and allow them to work cooperatively in one place? With all those desires, Here comes the Teakwood framework.
+Four years ago, I know nothing about Linux. I then got a job to deal with HPC(High Performance Computing) systems. Suddenly I jumped into an Linux environment. I found that all those GUIs(Graphic User Interfaces), which I used to when using Windows OS, are gone, and I have to use Linux commands to manipulate those machines and manage my stuff, which makes me uncomfortable and cumbersome. With time goes by, I eventually can work with Linux comfortably. However, I still have the tendency to use GUI when proving me the option.\\I am not the only one that had such experience. In my working building, a lot of scientists and researchers are suffering this pain. Not only this, since they usually have to work on cross-platforms, the OS conflict add them many wasteful jobs. For example, scientist A want to share a computing result to researcher B, as B need it to do the visualization. A uses Linux and B uses Windows. What should they do? Normally without tool's help, then need to type command, command, command... copy, paste, and then command, command ...\\Why not create a GUI platform to reduce those repeated typing work and allow them to work cooperatively in one place? With all those desires, Here comes the Teakwood framework.
 
 \section{Teakwood}
 Teakwood is a GUI framework that allows user to summit HPC jobs from Teakwood web console, and to have a full control of their job status. Teakwood also provides a file management system for user to organize their project data easily. What's more, Teakwood enables user to work cooperatively by allowing them to share result, models and computing resources within their group. \\
-Teakwood migrates all the terminal typing work to Teakwood GUI, enables user to submit HPC jobs just simply by clicking functional buttons. No more terminal commands.\\
-As Teakwood is a web framework, user can access from any where, any type of machine as long as the machine has a browser and the Internet. no more hassle by the OS conflict.\\
-Teakwood file server hosts all users' computing data in one place, which greatly facilitated the collaboration among users.
-\section{Feature}
+Teakwood migrates all the terminal typing work to Teakwood GUI, and wrap them with interateive web pages. This enables user to submit HPC jobs just by simply  clicking functional buttons. No more terminal commands.\\
+As Teakwood is a web framework, user can access from any where, any type of machine, as long as the machine has a browser and the Internet. no more hassle by the OS conflict.\\
+What's more, Teakwood file server hosts all users' computing data in one place, which greatly facilitated the collaboration among users.
+
+\section{Features}
 Functionally, Teakwood have the following features:\\
 
 $\bullet$ \textbf{Perfect documentation}\\
-Teakwood homepage provides diverse software documentations including installation guide, user manual, developer manual,video tutorial, etc. user can grasp Teakwood soon.\\
+Teakwood homepage provides diverse software documentations including installation guide, user manual, developer manual, video tutorial, etc. user can grasp Teakwood soon.\\
 
-$\bullet$ \textbf{Neat GUI}\\
-A neat LSU style web console makes your work simple and easy. Drag, push, click, that's it!\\
+$\bullet$ \textbf{Neat web portal}\\
+A neat LSU style web console makes your job submission simple and easy. Drag, push and click, that's it. Let's say goodbye to terminal typing.\\
 
-$\bullet$ \textbf{Job monitor System}\\
-Job monitor system provides five labels: "uploading", "queued", "running", "finish", and "Data Ready" for user to monitor the job status. Job monitor system also periodically pulls the job running messages from computing server and displays them on console, user may know more details.\\
+$\bullet$ \textbf{Job monitor system}\\
+Job monitor system provides five labels: "uploading", "queued", "running", "finish", and "Data Ready" for user to read the job status. Job monitor system also periodically pulls the job running messages from computing server and displays them on working console, user may know more details.\\
 
 $\bullet$ \textbf{Project management system}\\
-All user's project is well organized and web kept in a file server. user can compare, share, and download them as needed.\\
+All user's project data is well organized and web kept in a file server. user can compare, share, and download them as needed.\\
 
 $\bullet$ \textbf{Powerful admin}\\
-The powerful admin system is provided by Django itself. With tiny system configuration, user can activate their models and have a top-down control of their models.\\
+The powerful admin system is provided by Django itself. With tiny system configuration, user can activate their admin system and have a top-down control of their account.\\
 
 %$\bullet$ \textbf{Extensible development}\\
 %Teakwood is loose coupling designed. User can add or remove features, models and python functions independently without mess the whole system.\\
 
 \section{System requirements}
-Teakwood is a Django powered web framework which integrated a lot of third party python packages and external tools, and some of the packages or tools require extra libs and development packages to work, so before running Teakwood, we need to resolve all the dependencies as well as set up all the packages and tools.
+
+Teakwood is a Django powered web framework which integrated a lot of third party packages and external tools; Some of the packages or tools require extra libs and development packages to work, so before running Teakwood, we need to resolve all the dependencies as well as finish setting up all the packages and tools.\\
 
 $\bullet$ \textbf{Project Dependent libs}\\
 As mentioned above, install all dependent libs are the first thing. Please refer installation guide in homepage for more information.\\
 
 $\bullet$ \textbf{MySQL Database}\\
-Teakwood uses MySQL database, so make sure mysql-server and mysql-devel is installed.
-If you want a GUI control of your database, I recommend phpMyAdmin. 
+Teakwood uses MySQL database, so make sure mysql-server and mysql-devel is installed.If you want a GUI control of your database, I recommend phpMyAdmin. \\
 
 $\bullet$ \textbf{Version Control}\\
-Teakwood uses git as version control. Git is a very popular version control software. Teakwood source code is hosted in Github.\\
+Teakwood uses git as version control. Git is a very popular version control software. Teakwood source code is hosted by Github.\\
 
 $\bullet$ \textbf{Virtual Environment}\\
-It is highly recommend that we set up an independent working environment for Teakwood project. "Virtualenv" is a good solution.\\
+It is highly recommended that we set up an independent working environment for Teakwood development. "Virtualenv" is a reliable solution.\\
 
-$\bullet$ \textbf{Latex+Sphinx}\\
-Teakwood uses sphinx packge to generate diverse documentations such as html, latex, pdf, etc. so these tools need to be installed.\\
+$\bullet$ \textbf{Latex and Sphinx}\\
+Teakwood uses sphinx package to generate diverse documentations such as html, latex, pdf, so these tools need to be installed.\\
 
-$\bullet$ \textbf{Celery+RabbitMQ}\\
-This is a solution for resolve synchronous process.\\
+$\bullet$ \textbf{Celery and RabbitMQ}\\
+This is a solution for resolving synchronous process.\\
 
 $\bullet$ \textbf{Django 1.4.x}\\
 No need to explain. \\
 
 $\bullet$ \textbf{Third Party Packages}\\
-Teakwood uses a lot of "wheels" during the design, so before it can serving, those wheels need to be installed. Refer "requirements.txt" for more information.
+Teakwood uses a lot of "wheels" to construct the Teakwood structure, so those wheels need to be installed in the right path before Teakwood starts runing. Refer "requirements.txt" for more information.
 
 
 
