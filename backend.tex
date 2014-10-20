@@ -1,11 +1,11 @@
 \chapter{Backend Mystery} 
-Teakwood is powered by Django framework, so its backend inherits all the Django  backend feathers. For example, Teakwood follows the MVC(Model-View-Controller) design pattern and DRY(Don't Repeat Yourself) principle. When you go through Teakwood's code, you will found that teakwood have a neat and loose coupling coding structure. This chapter will go through Teakwood's four important feathers in the backend: The MTV design pattern, the model to database mapping, the template language and the powerfull admin system.
+Teakwood is powered by Django framework, so its backend inherits all the Django  backend feathers. For example, Teakwood follows the MVC(Model-View-Controller) design pattern and DRY(Don't Repeat Yourself) principle. When you go through Teakwood's code, you will find that teakwood have a neat and loose coupling coding structure. What makes Teakwood's coding structure so unique? This chapter will go through Teakwood's four important feathers in the backend: The MTV design pattern, the model to database mapping, the template language and the powerfull admin system.
 
 \section{MTV Framework}
 Teakwood has an updated MVC, that is MTV.\\
 \begin{figure}[htb]
 \centering
-\includegraphics[scale=0.5]{./mtv}
+\includegraphics[scale=0.7]{./mtv}
 \caption{Teakwood MTV framework}
 \label{fig:label} % insert suitable label, this is used to refer to a fig from within the text as shown above
 \end{figure}
@@ -13,6 +13,7 @@ Teakwood has an updated MVC, that is MTV.\\
 \textbf{M} represents the model (Model), i.e., \textbf{the data access layer}. This layer processing data in all matters related to: how to access, how to confirm the validity , which behaviors it has, and the relationships between the data.\\
 \textbf{T} Representative of template (Template), i.e., \textbf{the presentation layer}. This layer response for how to display the page or other types of documents.\\
 \textbf{V} represents the view (View), \textbf{business logic layer}. You can see it as a bridge between the model and the template.This layer calls the model to provide data and sent it template for rendering web page. \\
+\vspace{1in}
 
 As we can see from the figure, Teakwood has a loose coupled modeling design. "M","T", and "V" are separated from each other; Each MTV wrapper(i.e. a Django app) is also separated from each other. This design makes the Teakwood sytem flexible for make changes and easy to extend feathers.
 

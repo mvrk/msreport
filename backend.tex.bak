@@ -1,11 +1,11 @@
 \chapter{Backend Mystery} 
-Teakwood is powered by Django framework, so its backend inherits all the Django  backend feathers. For example, Teakwood follows the MVC(Model-View-Controller) design pattern and DRY(Don't Repeat Yourself) principle. When you go through Teakwood's code, you will found that teakwood have a neat and loose coupling coding structure. This chapter will go through Teakwood's four important feathers in the backend: The MTV design pattern, the model to database mapping, the template language and the powerfull admin system.
+Teakwood is powered by Django framework, so its backend inherits all the Django  backend feathers. For example, Teakwood follows the MVC(Model-View-Controller) design pattern and DRY(Don't Repeat Yourself) principle. When you go through Teakwood's code, you will find that teakwood have a neat and loose coupling coding structure. What makes Teakwood's coding structure so unique? This chapter will go through Teakwood's four important feathers in the backend: The MTV design pattern, the model to database mapping, the template language and the powerfull admin system.
 
 \section{MTV Framework}
 Teakwood has an updated MVC, that is MTV.\\
 \begin{figure}[htb]
 \centering
-\includegraphics[scale=0.5]{./mtv}
+\includegraphics[scale=0.7]{./mtv}
 \caption{Teakwood MTV framework}
 \label{fig:label} % insert suitable label, this is used to refer to a fig from within the text as shown above
 \end{figure}
