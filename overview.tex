@@ -57,18 +57,18 @@ $\bullet$ The \textbf{red}: only superuser can see and manipulate.\\
 
 
 \section{Backend}
-The backend is the logical design on how to interact with user. This Includes verifying user's request, pulling requested data, generating HTML web page and displaying web page. Teakwood follows the MVC(Model-View-Controller)design pattern and separates all the functions in to loose coupling parts, in Django, it call "app". All parts can both work independently and cooperatively.(We will have a backend chapter to reveal the logic mystery.)
+The backend contains all the logical design of data manipulating and HTML producing. In detail, it includes verifying user's request, pulling requested data, generating HTML web page and displaying the web page. Teakwood follows the MVC(Model-View-Controller)design pattern and separates all the system functions in to loose coupled parts, each part is a well wrapped MVC. in Django, it call "app". These parts will work independently or cooperatively in order to achieve a user's request. We will have a backend chapter to reveal the logic mystery, so this section I will only give a general explanation.
 
 In Teakwood system, there are mainly eight parts(Apps).\\
 
-$\bullet$ \textbf{Teakwood}: control the frontend presentation.\\
-$\bullet$ \textbf{Accounts}: control the user identification.\\
+$\bullet$ \textbf{Teakwood}: controls the frontend presentation.\\
+$\bullet$ \textbf{Accounts}: provides the registration logic.\\
 $\bullet$ \textbf{Models}: invoke and control the computing models.\\
-$\bullet$ \textbf{machine}:invoke and control the computing resources\\
-$\bullet$ \textbf{PBS}:Guide the PBS script generation.\\
-$\bullet$ \textbf{File upload}:gather input files to buffer for downloading \\
-$\bullet$ \textbf{Admin}:overall control of user and data.\\
-$\bullet$ \textbf{Celery}:asynchronous handling.\\
+$\bullet$ \textbf{Machine}: invoke and control the computing resources.\\
+$\bullet$ \textbf{PBS}: guides the PBS script generation.\\
+$\bullet$ \textbf{File upload}: gathers the input files to buffer for downloading. \\
+$\bullet$ \textbf{Admin}: provies an overall control of user and data.\\
+$\bullet$ \textbf{Celery}: third party app, handle synchronous processing.\\
 
 \section{Data handling}
 Teakwood system handles three types of data: the website data, the computing data and the message queue data. For each type of data we provide a different storage. see this table:\\
@@ -84,18 +84,19 @@ Teakwood system handles three types of data: the website data, the computing dat
 \end{table}
 
 
-Teakwood website uses MySQL database for store it website data, e.g. the user account and the project labels.\\
-For the computing data, we periodically rsync them to a separate file server for data  backup and downloading purpose. e.g. input files and the output result.\\
-Message queue data is generated when we use Celery to asynchronous processing time consuming process. They are just ephemeral data, so we simply use a redis server to keep it.\\
+Teakwood uses MySQL database for storing the website data, e.g. the user account and the project labels.\\
+For the computing data, Teakwood periodically rsync them to a separate file server for backup and downloading purpose, e.g. input files and the output result.\\
+Message queue data is generated when we use Celery to asynchronous processing time consuming process. Those data are ephemeral, so we simply use a redis server to keep it.\\
 
 \section{Remote Configuration}
-Before the first time we can run a job in HPC or cloud, we have set up a connection and ready everything. the main things we should done are:\\
+Before the first time we can run a job in HPC or cloud, we have set up a connection between Teakwood and the computing server. Also we have to prepare everything that running a job will need. The main tasks are:\\
 
-$\bullet$ Establish an password-less ssh log-in.\\
-$\bullet$ Compile the tools and packages we will use in remote machine.\\
-$\bullet$ Ready all the import path for Teakwood to use.\\
+$\bullet$ Establish an password-less ssh login. to the server.\\
+$\bullet$ Compile the tools and packages we will use in the remote machine.\\
+$\bullet$ Ready all the import path for machine configuration Teakwood.\\
+$\bullet$ Configuration Teakwood by the form guidance.\\
 
-One those steps are done, we just simply "plug-in" Teakwood to the remote machine, and everything we can do from Teakwood web portal, without touch the under layers.
+After those steps are done, we've successfully "plugged" Teakwood onto the remote machine. Now everything we interact with the terminal will migrates to the Teakwood web portal.
 
 
 %\subsection{<Sub-section title>}

@@ -1,5 +1,5 @@
 \chapter{Backend Mystery} 
-Teakwood is powered by Django framework, so its backend inherits all the Django  feathers. For example, Teakwood follows the MVC(Model-View-Controller) design pattern and DRY(Don't Repeat Yourself) principle. When you go through Teakwood's code, you will found that teakwood have a neat and loose coupling coding structure. In this chapter, I will go through some most special feathers in the backend of Teakwood. I will use some Django terminologies for elaboration, If you want a better under standing of Django terminologies, please refer to the Django official documentations.
+Teakwood is powered by Django framework, so its backend inherits all the Django  backend feathers. For example, Teakwood follows the MVC(Model-View-Controller) design pattern and DRY(Don't Repeat Yourself) principle. When you go through Teakwood's code, you will found that teakwood have a neat and loose coupling coding structure. This chapter will go through Teakwood's four important feathers in the backend: The MTV design pattern, the model to database mapping, the template language and the powerfull admin system.
 
 \section{MTV Framework}
 Teakwood has an updated MVC, that is MTV.\\
@@ -11,10 +11,16 @@ Teakwood has an updated MVC, that is MTV.\\
 \end{figure}
 
 \textbf{M} represents the model (Model), i.e., \textbf{the data access layer}. This layer processing data in all matters related to: how to access, how to confirm the validity , which behaviors it has, and the relationships between the data.\\
-\textbf{T} Representative of T template (Template), i.e., \textbf{the presentation layer}. The layer processing performance related decision: how to display the page or other types of documents.\\
-\textbf{V} represents the view (View), \textbf{business logic layer}. This layer contains the access models and the transfer of appropriate template logic. You can see it as a bridge between the model and the template.\\
+\textbf{T} Representative of template (Template), i.e., \textbf{the presentation layer}. This layer response for how to display the page or other types of documents.\\
+\textbf{V} represents the view (View), \textbf{business logic layer}. You can see it as a bridge between the model and the template.This layer calls the model to provide data and sent it template for rendering web page. \\
+
+As we can see from the figure, Teakwood has a loose coupled modeling design. "M","T", and "V" are separated from each other; Each MTV wrapper(i.e. a Django app) is also separated from each other. This design makes the Teakwood sytem flexible for make changes and easy to extend feathers.
+
 \section{Models and Database}
-Django provides an abstraction layer (the “models”) for structuring and manipulating the data of your Web application. In Django, a lot of this hassle is taken care of for you by Django’s object relational mapping (ORM) functions, and how Django encapsulates databases tables through models. Essentially, a model is a Python object that describes your data model/table. Instead of directly working on the database table via SQL, all you have to do is manipulate the corresponding Python object. 
+Teakwood provides an abstraction layer (the “models”) for structuring and manipulating the data of Teakwood apps. Essentially, a model is a Python object that describes your data model/table.Thanks for Django provides an integrated object relational mapping (ORM) functions, we don't have work with SQL database  itself in order to manipulate data. All we should done is manipulate the corresponding Python object. ORM will do the mapping work.
+
+Django provides many APIs to deal with Databases.
+
 \section{Teakwood Template Language}
 Django’s template language is designed to strike a balance between power and ease. Its designed to feel comfortable to those used to working with HTML. \\
 Django template language is not just HTML file. Here is an example:
@@ -24,32 +30,31 @@ Django template language is not just HTML file. Here is an example:
 {% block content %}
 <h1>{{ section.title }}</h1>
 {% for story in story_list %}
-<h2>
-  <a href="{{ story.get_absolute_url }}">
+<h2><a href="{{ story.get_absolute_url }}">
     {{ story.headline|upper }}
-  </a>
-</h2>
+  </a></h2>
 <p>{{ story.tease|truncatewords:"100" }}</p>
 {% endfor %}
 {% endblock %}
 \end{verbatim}
 
+We can see there are some special symbols in the HTML code. In Django template language they are called variables, tags and filters.\\
+
 \textbf{Variable}: When the template engine encounters a variable, it evaluates that variable and replaces it with the result.\\
-
-\textbf{Tag }: Tags are more complex than variables: Some create text in the output, some control flow by performing loops or logic, and some load external information into the template to be used by later variables. Some tags require beginning and ending tags. There are about two dozens of build-in tags in Django.\\
-
+\textbf{Tag }: Tags are more complex than variables: Some create text in the output, some control flow by performing loops or logic, and some load external information into the template to be used by later variables. Some tags require beginning and ending tags. \\
 \textbf{filter}:Filter is basically a restricted variable.\\
 
-we can add variables,tags and filters into HTML code.
+Through variables and tags, static html files becomes dynamic html files and can interact with python code. Django system even provides build-in tags for achieving logical control.
+
 
 \section{Powerful Admin}
-Teakwood comes with a user authentication system which is inherited from Django framework. The admin system handles user accounts, groups, permissions and cookie-based user sessions. This section of the documentation explains how the default implementation works out of the box, as well as how to extend and customize it to suit your project needs.
+Teakwood comes with a user authentication system which is inherited from Django framework also. The admin system handles user accounts, groups, permissions and cookie-based user sessions. 
 
 Teakwood Admin system limited to trusted site administrators, that enables the adding, editing and deletion of site content. Some common examples: the interface you use to post to your blog, the backend site managers use to moderate user-generated comments, the tool your clients use to update the press releases on the Web site you built for them.
 
 \section{A Practical Case}
 
-How Teakwood process a request from user?
+So far we've already know that Teakwood is loose coupling designed and follows a "MTV"design pattern. Teakwood uses python object to work with database by object oriented mapping. we also know that Teakwood template language is way surpass a static html file with the help of python variables and tags. Now let's try to go trhough all these details to see How Teakwood process a request from user. Fisrt, let's take a look at the Teakwood HTTP request response flow.
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.6]{./http_request_response}
