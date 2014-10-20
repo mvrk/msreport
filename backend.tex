@@ -54,13 +54,31 @@ Teakwood Admin system limited to trusted site administrators, that enables the a
 
 \section{A Practical Case}
 
-So far we've already know that Teakwood is loose coupling designed and follows a "MTV"design pattern. Teakwood uses python object to work with database by object oriented mapping. we also know that Teakwood template language is way surpass a static html file with the help of python variables and tags. Now let's try to go trhough all these details to see How Teakwood process a request from user. Fisrt, let's take a look at the Teakwood HTTP request response flow.
-\begin{figure}[htb]
+So far we've already know that Teakwood is loose coupling designed and follows a "MTV"design pattern. Teakwood uses python object to work with database by object oriented mapping. we also know that Teakwood template language is way surpass a static html file with the help of python variables and tags. Now let's try to go trhough all these details to see How Teakwood process a request from user. Fisrt, let's take a look at the Teakwood HTTP request response flow.\\
+\begin{figure}[h]
 \centering
-\includegraphics[scale=0.6]{./http_request_response}
+\includegraphics[scale=0.5]{./http_request_response}
 \caption{Teakwood Request-Response Working Flow}
 \label{fig:label} % insert suitable label, this is used to refer to a fig from within the text as shown above
 \end{figure}
+Now let take a real example to see how this structure works. \\For example, an user want to view all the job status. He will trigger the jobs button in working console. \\
+
+
+
+$\bullet$ trigger generate an request,\\
+$\bullet$ request goes to request middleware for identity check, if legal? auth?\\
+$\bullet$ if yes, goes to response and raise error page\\
+$\bullet$ if no, goes to urlconfig to locate the right URL,\\
+$\bullet$ URL goes to view middleware for legibility check, if wrong URL, auth?\\
+$\bullet$ if yes, goes to response and raise an error page,\\
+$\bullet$ if no, goes to view function, \\
+$\bullet$ view function check if need data? if need template?\\
+$\bullet$ if need data, trigger models to fetch data from database,\\
+$\bullet$ if need template, find the right template, also fetch css, js and imgs.\\
+$\bullet$ goes to respones and rendering web page,\\
+$\bullet$ display the right page to user.
+
+
 
 %\section{Lose Coupling}
 
