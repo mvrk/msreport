@@ -55,7 +55,7 @@
 \input{./introduction.tex} %literature survey included in this
 \input{./overview.tex}
 \input{./backend.tex}
-\input{./asynchronous.tex}
+%\input{./asynchronous.tex}
 \input{./usecase.tex} 
 \input{./conclusion.tex}
 \input{./futurework.tex}

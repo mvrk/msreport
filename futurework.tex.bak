@@ -1,9 +1,13 @@
 \chapter{Future Work}
 
 \section{Docker Hub}
-Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool.
-Once you designed a Docker container. it can pluged to any machine and directly user it.
+Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool.\\
+Any software can be wrapped as a docker for use. Once a Docker is built, it can plugged into any machine for direct use without any system configuration or compiling or so. The only requirement is Docker is installed on the machine.\\
+Teakwood aims to become an Docker hub, so that all users can contribute their Dockers to Teakwood platform. In the future, models deployment for Teakwood can also be a standard procedure.
+
 \section{Visualization}
-We can have two types of Dockers, the computing docker and the visualization docker.
+Visualization is a challenge for Teakwood because output data various, but visualization tools only accept structured data. In the future Teakwood will Create some data parsers for most popular output types. With the help of Visualization Docker, Visualization can may have a big achievement.
 \section{Computing on the go}
-Deploy your models to the Amazon cloud, save an image. compute your models on the go.
+If your job only requires small scale computing time and you don't have public computing resouces, then "Computing on the go" is right for you.\\
+The ideal is this:\\
+Deploy your models to an pure AMI(Amazon image), and save it as an new AMI. When you need your models for computation, just connect your AWS account from Teakwood, use the new AMI for initialization, then you model can be used as normal. 

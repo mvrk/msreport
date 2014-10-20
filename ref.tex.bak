@@ -4,8 +4,20 @@
 \addcontentsline{toc}{chapter}{References}
 \begin{thebibliography}{99}
 
-\bibitem{Django Framework}Django framwork.\ \url{https://www.djangoproject.com/}
+\bibitem{Django}Django framwork.\ \url{https://www.djangoproject.com/}
+
+\bibitem{Python} Python programming language\ \url{https://www.python.org/}
 
 \bibitem{Celery}Celery: Distributed Task Queue.\ \url{http://www.celeryproject.org/}
+
+\bibitem{Sphinx} Sphinx Documentation generator.\ \url{http://sphinx-doc.org/}
+
+\bibitem{RabbitMQ} Message queue broker.\ \url{http://www.rabbitmq.com/}
+
+\bibitem{Xsede} Science gateway\ \url{https://www.xsede.org/}
+
+\bibitem{SWAN} Simulating wave nearshore\ \url{http://swanmodel.sourceforge.net/}
+
+\bibitem{HPC} LSU HPC: Supermike II\ \url{http://www.hpc.lsu.edu/}
 
 \end{thebibliography}
