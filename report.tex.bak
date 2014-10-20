@@ -33,13 +33,15 @@
 \setlength{\parindent}{0pt}
 
 
+
 %include other pages
 
 \input{./title.tex}
+%%generate an empty page here
+%\newpage
+%\thispagestyle{empty}
+%\mbox{}
 
-\newpage
-\thispagestyle{empty}
-\mbox{}
 %\input{./preface.tex}
 \input{./abstract.tex}
 

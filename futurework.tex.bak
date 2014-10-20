@@ -1,5 +1,9 @@
 \chapter{Future Work}
 
 \section{Docker Hub}
+Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Consisting of Docker Engine, a portable, lightweight runtime and packaging tool.
+Once you designed a Docker container. it can pluged to any machine and directly user it.
 \section{Visualization}
-\section{Computing on the GO}
+We can have two types of Dockers, the computing docker and the visualization docker.
+\section{Computing on the go}
+Deploy your models to the Amazon cloud, save an image. compute your models on the go.

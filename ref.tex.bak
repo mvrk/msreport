@@ -4,8 +4,8 @@
 \addcontentsline{toc}{chapter}{References}
 \begin{thebibliography}{99}
 
-\bibitem{citation-1-name-here}<Name of the reference here>,\ \url{<url here>}
+\bibitem{Django Framework}Django framwork.\ \url{https://www.djangoproject.com/}
 
-\bibitem{citation-2-name-here}<Name of the reference here>,\ \url{<url here>}
+\bibitem{Celery}Celery: Distributed Task Queue.\ \url{http://www.celeryproject.org/}
 
 \end{thebibliography}
