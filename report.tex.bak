@@ -42,7 +42,7 @@
 %\thispagestyle{empty}
 %\mbox{}
 
-%\input{./preface.tex}
+\input{./preface.tex}
 \input{./abstract.tex}
 
 \pagenumbering{roman} %numbering before main content starts
@@ -54,7 +54,9 @@
 
 \input{./introduction.tex} %literature survey included in this
 \input{./overview.tex}
-\input{./backend.tex}
+\input{./apptemp.tex}
+\input{./mech.tex}
+%\input{./backend.tex}
 %\input{./asynchronous.tex}
 \input{./usecase.tex} 
 \input{./conclusion.tex}

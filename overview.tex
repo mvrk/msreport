@@ -1,7 +1,7 @@
-\chapter{Teakwood System }
+\chapter{Design Structure}
 
 \section{Overview}
-Structurally, like most websites, Teakwood system has a three-layer layout: frontend, backend, and database. Becuase Teakwood uses computing servers to run jobs, so the eco Teakwood system actually has four layers; the up mentioned three plus a computing layer. the below figure shows how is the four-layer structure like:\\
+Structurally, like most websites, Teakwood system has a three-layer layout: frontend, backend, and database. The difference is, Teakwood uses computing servers to run HPC jobs, so the eco Teakwood system actually has four layers: the up mentioned three plus a computing layer. the below figure shows how the four-layer structure looks like:\\
 
 \begin{figure}[htb]
 \centering
@@ -14,7 +14,7 @@ Structurally, like most websites, Teakwood system has a three-layer layout: fron
 On the above figure, we can see the four straight layers bottom-up. Each layer from left to right: the left part is the layer name; the middle part is the layer content; and the right part is the layer reality. Let's go through these layers one by one.
 
 \section{Frontend}
-The frontend is a visible GUI that user interact with. Basically all what we see in the Teakwood website can be called the "frontend", that includes the HTML files, Functional butthons, the pictures, etc.  For neat purpose, Teakwood separated the frontend into two parts: the \textbf{information pages} and the \textbf{working console}. See below:
+The frontend is a visible GUI that user interact with. Basically all what we see in the Teakwood website can be called the "frontend". In general, the frontend includes HTML files, JS, CSS, and the static images. For neat purpose, Teakwood separated the frontend into two parts: the \textbf{information pages} and the \textbf{working console}. See below:
 
 \begin{figure}[htb]
 \centering
@@ -35,7 +35,8 @@ $\bullet$ Video tutorial.\\
 $\bullet$ Teakwood forum.\\
 
 
-The \textbf{working console} is the working place you actually tango with your project. The functional buttons will guide you to different web pages for different purpose.\\
+
+The \textbf{working console} is the place where you actually tango with your projects. The functional buttons will guide you to different web pages for different purposes.\\
 Let me explain these functional buttons one by one.\\
 
 $\bullet$ \textbf{Home}: Directs you to the homepage.\\
@@ -55,11 +56,10 @@ $\bullet$ The \textbf{Green}: all visitors can see and manipulate.\\
 $\bullet$ The \textbf{orange}: only logging user can see and manipulate.\\
 $\bullet$ The \textbf{red}: only superuser can see and manipulate.\\
 
+For the frontend, I wrote all these HTML files using Teakwood template languages, which I will elaborate later. The easy-navigated Documentation in information pages is generated from reStrcutredText.
 
 \section{Backend}
-The backend contains all the logical design of data manipulating and HTML producing. In detail, it includes verifying user's request, pulling requested data, generating HTML web page and displaying the web page. Teakwood follows the MVC(Model-View-Controller)design pattern and separated all the system functions in to loose coupled parts, each part is a well wrapped MVC. in Django, it calls "app". These parts will work independently or cooperatively in order to achieve a user's request. We will have a backend chapter to reveal the logic mystery. This section will only  provides a general explanation.
-
-In Teakwood system, there are mainly eight parts(Apps).\\
+The backend contains all the logical design of data manipulating and HTML files producing. In detail, it includes verifying user's request, pulling requested data, generating HTML web pages and displaying the web pages. Teakwood separated all the system functions in to loosely coupled parts, each part is a well wrapped, independent application. These applications will work independently or cooperatively in order to achieve user's requests. We will explain the application details in chapter four. This section will only  provides a general view.\\
 
 $\bullet$ \textbf{Teakwood}: controls the frontend presentation.\\
 $\bullet$ \textbf{Accounts}: provides the registration logic.\\
@@ -70,9 +70,9 @@ $\bullet$ \textbf{File upload}: gathers the input files to buffer for uploading.
 $\bullet$ \textbf{Admin}: provies an overall control of user and data.\\
 $\bullet$ \textbf{Celery}: third party app, handle synchronous processing.\\
 
-\section{Data handling}
+Among the eight applications, Admin is provided by system itself;  Account and Celery are third party wheels; the rest of the applications are designed by me. 
+\section{Data Handling}
 Teakwood system handles three types of data: the website data, the computing data and the message queue data. For each type of data Teakwood provides a different storage. see this table:\\
-\\   
 \begin{table}[h]
 \begin{tabular}{lllll}
 \cline{1-3}
@@ -83,20 +83,26 @@ Teakwood system handles three types of data: the website data, the computing dat
 \end{tabular}
 \end{table}
 
+Teakwood uses MySQL database for storing the website data, e.g. the user accounts and the project labels.\\
+For the computing data, Teakwood periodically synchronize them to the file server for backup and downloading purpose, e.g. input files and the output results.\\
+Message queue data are generated when we use Celery to asynchronous process time consuming tasks. Since those data are ephemeral, we simply use a redis server to keep it.\\
 
-Teakwood uses MySQL database for storing the website data, e.g. the user account and the project labels.\\
-For the computing data, Teakwood periodically synchronize them to the file server for backup and downloading purpose, e.g. input files and the output result.\\
-Message queue data is generated when we use Celery to asynchronous process time consuming tasks. Those data are ephemeral, so we simply use a redis server to keep it.\\
+This layer requires a lot of tools installation and system configuration, not too much coding work.
 
-\section{Remote Configuration}
-Before the first time we can run a job on HPC or cloud, we have set up a connection between Teakwood and the computing servers. In detail, we have four tasks to do:\\
+\section{Connection Configuration}
+Before the first time we can run a job on HPC or cloud, we have to set up a connection between Teakwood and the remote servers. In detail, we have the following tasks to do.\\
 
-$\bullet$ Establish an password-less ssh login. to the server.\\
+\textbf{Server side}:\\
+$\bullet$ Establish a password-less SSH login to the server.\\
 $\bullet$ Compile the tools and packages we will use in the remote machine.\\
-$\bullet$ Ready all the import path for machine configuration Teakwood.\\
-$\bullet$ Configuration Teakwood by the form guidance.\\
+$\bullet$ Create system paths and working directories for Teakwood.\\
+$\bullet$ Advance HPC system configuration for acknowledge Teakwood connecting.\\
 
-After those steps are done, we've successfully "plugged" Teakwood into these remote machines. Now everything we interact with the terminal will migrates to the Teakwood web portal.
+\textbf{Teakwood side}:\\
+$\bullet$ Fill the machine information in machine form.\\
+$\bullet$ Fill the executable command in script form.\\
+
+Once those steps are done, we will have successfully "plugged" Teakwood into remote machines. Now everything we interact with  in the terminal will migrate to the Teakwood web portal.
 
 
 %\subsection{<Sub-section title>}

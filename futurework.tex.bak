@@ -2,14 +2,14 @@
 
 $\bullet$ \textbf{Docker Hub}\\
 
-Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Any software can be wrapped as a docker for use. Once a Docker is built, it can plugged into any machine for direct use without any system configuration or compiling or so. The only requirement is Docker is installed on that machine.\\
+Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications. Any software can be wrapped as a docker for cross-platform use. Once a Docker is built, it can plugged into any machine for direct use without any system configuration or compiling or so. The only requirement is Docker is installed on that machine.\\
 Teakwood aims to become a Docker hub, so that all users can contribute their Dockers to Teakwood platform. In the future, models deployment for Teakwood can also be a standard procedure.\\
 
 $\bullet$ \textbf{Visualization}\\
 
-Visualization is a challenge for Teakwood because output data are various, while visualization tools only accept structured data. In the future Teakwood is working on create general data parser for most popular output types.\\
+Visualization is a challenge for Teakwood because output data are various, while visualization tools only accept structured data. In the future Teakwood will work on creating general data parsers for most popular output types.\\
 
 $\bullet$ \textbf{Computing on the go}\\
 
-If your job only requires small scale computing and you don't have public computing resources, then "Computing on the go" is right for you.\\
-The ideal is this. Deploy your models to an pure AMI(Amazon image), and save it as an new AMI. When you need your models for computation, just connect your AWS account from Teakwood, use the new AMI for initialization, then all your models can be used instantly without re-compiling. Terminate your cloud service one you done with computing. 
+If your job occasionally requires HPC computing and you don't have private computing resources, then "Computing on the go" is right for you.\\
+This ideal is accounting on Amazon cloud. First deploy your models to an pure AMI(Amazon image), and save it as an new AMI. When you need your models for computation, just launch it from Teakwood. using the new AMI for initialization, then all your models can be used instantly without re-compiling. After your jobs are done, terminate your cloud service and save money. 
